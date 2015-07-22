@@ -1,0 +1,6 @@
+framework module Parse {
+  umbrella header "Pods-Roast Me!-Parse-umbrella.h"
+
+  export *
+  module * { export * }
+}

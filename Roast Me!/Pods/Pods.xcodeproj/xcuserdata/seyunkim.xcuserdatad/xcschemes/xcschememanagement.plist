@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Roast Me!-AFViewShaker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!-ParseFacebookUtilsV4.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Roast Me!.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>145A6A0A07CCE8D77E7B8F72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F4672A794604CB20BB32877</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40667C9ACE0EAAF8934D9A49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79A4AFA753B199ECB540D861</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A45CACC00DF8F01B9785733</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>904761C4C445FD98945A8887</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9949DCB2878B1D4DFA0E7E5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C21A7C78369BDDCA618EBBED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D649AC62256C561636CBAC54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

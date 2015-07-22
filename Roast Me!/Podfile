@@ -1,0 +1,19 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+
+target 'Roast Me!' do
+use_frameworks!
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
+pod 'ParseFacebookUtilsV4', '~> 1.7'
+pod 'Parse', '~> 1.7'
+pod 'GPUImage', '~> 0.1'
+pod "AFViewShaker", "~> 0.0.2"
+link_with 'Roast Me!', 'Roast Me! Dev' 'Roast Me! Tests'
+end
+
+target 'Roast Me!Tests' do
+
+end
+

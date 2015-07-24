@@ -56,6 +56,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'GPUImage.framework'
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
+  install_framework 'ParseUI.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AFViewShaker.framework'
@@ -66,4 +67,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'GPUImage.framework'
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
+  install_framework 'ParseUI.framework'
 fi

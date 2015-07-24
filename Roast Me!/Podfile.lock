@@ -27,6 +27,8 @@ PODS:
     - FBSDKCoreKit (~> 4.0)
     - FBSDKLoginKit (~> 4.0)
     - Parse (~> 1.7.5.2)
+  - ParseUI (1.1.4):
+    - Parse (~> 1.7)
 
 DEPENDENCIES:
   - AFViewShaker (~> 0.0.2)
@@ -36,6 +38,7 @@ DEPENDENCIES:
   - GPUImage (~> 0.1)
   - Parse (~> 1.7)
   - ParseFacebookUtilsV4 (~> 1.7)
+  - ParseUI
 
 SPEC CHECKSUMS:
   AFViewShaker: 7e4bc215ca3e92347b78da436fca74e1730b52e8
@@ -46,5 +49,6 @@ SPEC CHECKSUMS:
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   Parse: 9a01b8cb054f113b74211370aaf9d982d355729a
   ParseFacebookUtilsV4: acfed5ac0502003bca707f0de9700597f7527dbe
+  ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
 
 COCOAPODS: 0.37.2

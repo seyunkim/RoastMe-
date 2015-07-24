@@ -16,9 +16,14 @@ class FirstViewController: UIViewController {
 	
 	}
 	override func viewDidAppear(animated: Bool) {
+		PFUser.logOut()
 		var currentUser = PFUser.currentUser()
-		if currentUser != nil {
+		
+		println(PFUser.currentUser())
+		if currentUser != nil
+		{
 			// Do stuff with the user
+			self.performSegueWithIdentifier("moveToMainMenu", sender: self)
 			
 		} else {
 			println("the user is not logged in!")

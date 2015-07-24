@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Roast Me!-ParseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Roast Me!.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>145A6A0A07CCE8D77E7B8F72</key>
+		<key>5EA1EF74CAD800708ACF9147</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F4672A794604CB20BB32877</key>
+		<key>69F0F3A060934AF90EEB8898</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40667C9ACE0EAAF8934D9A49</key>
+		<key>A4B7BA2138F7599587758C02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79A4AFA753B199ECB540D861</key>
+		<key>A95779DD83BE1614E4C2FCE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A45CACC00DF8F01B9785733</key>
+		<key>B80C464D4C8AA7641E0B9DF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>904761C4C445FD98945A8887</key>
+		<key>BEC6A590124D0293DA5F6CC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9949DCB2878B1D4DFA0E7E5A</key>
+		<key>C80195A59F0C1C0B9E4F7FDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C21A7C78369BDDCA618EBBED</key>
+		<key>D11C90955034DB4DDE4F674A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D649AC62256C561636CBAC54</key>
+		<key>D6E5D5A5763CF9349F01CC17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FACFC7CE0480466CE1824C55</key>
 		<dict>
 			<key>primary</key>
 			<true/>

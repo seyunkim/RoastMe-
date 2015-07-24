@@ -10,7 +10,9 @@
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
 
-@interface AMLoginViewController ()
+
+@interface AMLoginViewController () 
+
 {
     AVPlayer * avPlayer;
     AVPlayerLayer *avPlayerLayer;
@@ -27,33 +29,25 @@
 @end
 
 @implementation AMLoginViewController
-FBSDKLoginButton *loginButton;
 
 
 - (void) viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
-	
-	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
-  if (!user) {
-		NSLog(@"Uh oh. The user cancelled the Facebook login.");
-	} else if (user.isNew) {
-		NSLog(@"User signed up and logged in through Facebook!");
-	} else {
-		NSLog(@"User logged in through Facebook!");
-	}
-	}];
-
 
 }
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-		loginButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
-		loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+	
+		self.facebookButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
+	
+	
+	[self.facebookButton addTarget:self action:@selector(_loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-	
-	
+
+
 
     // ---------------------------AVPLAYER STUFF -------------------------------
 	
@@ -123,6 +117,8 @@ FBSDKLoginButton *loginButton;
 
 }
 
+
+
 - (BOOL)shouldAutorotate {
 	return NO;
 }
@@ -166,6 +162,8 @@ FBSDKLoginButton *loginButton;
 }
 
 
+
+
 - (void) setViewItems
 {
     UIImageView * loginImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 110, 110)];
@@ -173,9 +171,9 @@ FBSDKLoginButton *loginButton;
     loginImage.center = CGPointMake(self.view.frame.size.width/2, 120);
     [self.view addSubview:loginImage];
 	
-	
-	loginButton.center = self.view.center;
-	[self.view addSubview:loginButton];
+
+	self.facebookButton.center = self.view.center;
+	[self.view addSubview:self.facebookButton];
 	
 //
 //    _usernameView = [[BlurView alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
@@ -200,29 +198,61 @@ FBSDKLoginButton *loginButton;
 //    [self.view addSubview:_sendButtonView];
 
 }
-//- (void)_loginWithFacebook {
-//	// Set permissions required from the facebook user account
-//	NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-//	
-//	// Login PFUser using Facebook
-//	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//		if (!user) {
-//			NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//		} else if (user.isNew) {
-//			NSLog(@"User signed up and logged in through Facebook!");
-//		} else {
-//			NSLog(@"User logged in through Facebook!");
-//		}
-//	}];
-//	// Request new Publish Permissions
-//	[PFFacebookUtils linkUserInBackground:[PFUser currentUser]
-//								 withPublishPermissions:@[ @"publish_actions"]
-//																	block:^(BOOL succeeded, NSError *error) {
-//																		if (succeeded) {
-//																			NSLog(@"User now has read and publish permissions!");
-//																		}
-//																	}];
-//}
+- (void)_loginWithFacebook {
+	// Set permissions required from the facebook user account
+	NSArray *permissionsArray = @[@"public_profile", @"email", @"user_friends"];
+	// Login PFUser using Facebook
+	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+		if (!user) {
+			NSLog(@"Uh oh. The user cancelled the Facebook login.");
+		} else if (user.isNew) {
+			NSLog(@"User signed up and logged in through Facebook!");
+			
+			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+				 if (!error) {
+					 user.username= result[@"name"];
+					 user[@"id"]= result[@"id"];
+					 user[@"email"]= result[@"email"];
+				 }
+			 }];
+		
+
+
+		
+		} else {
+			NSLog(@"User logged in through Facebook!");
+			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+				 if (!error) {
+					   if (user[@"name"]) {
+								user.username= result[@"name"];
+						 }
+						 else{
+							 NSLog(@"no name data");
+						 }
+						 if( user[@"id"]){
+						 user[@"id"]= result[@"id"];
+						 }
+						 else{
+							 NSLog(@"no id data");
+						 }
+						 if(user.email){
+						 user.email= result[@"email"];
+						 }
+						 else{
+							 NSLog(@"no email data");
+						 }
+					 [user save];
+					 
+				 }
+			 }];
+			
+
+		}
+	}];
+}
+
 
 #pragma mark - Miscellaneous
 

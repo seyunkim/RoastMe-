@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B8BB61D7-C6AF-4B23-97A9-96F02A14AB8C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Roast Me!</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>363B523B3E5372240DB7D06B5A7135A8EFC21DDA</key>
+		<string>https://github.com/seyunkim/RoastMe-.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Roast Me!/Roast Me!.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>363B523B3E5372240DB7D06B5A7135A8EFC21DDA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/seyunkim/RoastMe-.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>363B523B3E5372240DB7D06B5A7135A8EFC21DDA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>363B523B3E5372240DB7D06B5A7135A8EFC21DDA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RoastMe-</string>
+		</dict>
+	</array>
+</dict>
+</plist>

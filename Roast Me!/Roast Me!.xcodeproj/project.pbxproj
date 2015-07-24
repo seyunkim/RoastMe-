@@ -177,12 +177,12 @@
 		5EA560F91B5A4EB8004AF7E4 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */,
 				5EA55CD31B58862E004AF7E4 /* AppDelegate.h */,
 				5EA55CD41B58862E004AF7E4 /* AppDelegate.m */,
 				5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */,
 				5EA55CAC1B588517004AF7E4 /* ViewController.h */,
 				5EA55CAD1B588517004AF7E4 /* ViewController.m */,
-				5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */,
 			);
 			name = Src;
 			sourceTree = "<group>";

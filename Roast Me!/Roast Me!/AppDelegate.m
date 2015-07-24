@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 @interface AppDelegate ()
 @property PFUser* currentUser;
 @end
@@ -30,6 +31,9 @@
 	[PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+	
+	[FBSDKLoginButton class];
+
 	
 	return [[FBSDKApplicationDelegate sharedInstance] application:application
 																	didFinishLaunchingWithOptions:launchOptions];

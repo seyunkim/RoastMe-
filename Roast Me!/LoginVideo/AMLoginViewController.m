@@ -41,6 +41,8 @@
 {
     [super viewDidLoad];
 	
+
+	
 		self.facebookButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
 	
 	
@@ -166,15 +168,42 @@
 
 - (void) setViewItems
 {
+	// Blur Effect!
+	if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+		self.view.backgroundColor = [UIColor clearColor];
+		UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+		UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+		blurEffectView.frame = self.view.frame;
+		[self.view addSubview:blurEffectView];
+		
+		[blurEffectView setTranslatesAutoresizingMaskIntoConstraints:NO];
+		[self.view addConstraint:[NSLayoutConstraint constraintWithItem:blurEffectView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+		[self.view addConstraint:[NSLayoutConstraint constraintWithItem:blurEffectView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+		[self.view addConstraint:[NSLayoutConstraint constraintWithItem:blurEffectView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+		[self.view addConstraint:[NSLayoutConstraint constraintWithItem:blurEffectView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
+	}  else {
+		self.view.backgroundColor = [UIColor blackColor];
+	}
+	// Blur Effect End
+	
+	//Logo
     UIImageView * loginImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 110, 110)];
     [loginImage setImage:[UIImage imageNamed:@"logoclubby.png"]];
     loginImage.center = CGPointMake(self.view.frame.size.width/2, 120);
     [self.view addSubview:loginImage];
+	//Logo End
 	
-
+	//FB SDK LOGIN **USED FOR PICTURE ONLY**
+	FBSDKLoginButton* sdkButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
+	sdkButton.userInteractionEnabled = NO;
+	sdkButton.center = self.view.center;
+	[self.view addSubview:sdkButton];
+	//End for Picture
+	
+	//ACTUAL LOGIN BUTTON START
 	self.facebookButton.center = self.view.center;
 	[self.view addSubview:self.facebookButton];
-	
+	//Login Button End
 //
 //    _usernameView = [[BlurView alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
 //    _passwordView = [[BlurView alloc] initWithFrame:CGRectMake(35, 300, 250, 50)];
@@ -211,9 +240,10 @@
 			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
 			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
 				 if (!error) {
-					 user.username= result[@"name"];
-					 user[@"id"]= result[@"id"];
-					 user[@"email"]= result[@"email"];
+					 NSLog(result);
+//					 user.username= result[@"name"];
+//					 user[@"id"]= result[@"id"];
+//					 user[@"email"]= result[@"email"];
 				 }
 			 }];
 		
@@ -222,31 +252,18 @@
 		
 		} else {
 			NSLog(@"User logged in through Facebook!");
+		//	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+			
 			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
 			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+				 
 				 if (!error) {
-					   if (user[@"name"]) {
-								user.username= result[@"name"];
-						 }
-						 else{
-							 NSLog(@"no name data");
-						 }
-						 if( user[@"id"]){
-						 user[@"id"]= result[@"id"];
-						 }
-						 else{
-							 NSLog(@"no id data");
-						 }
-						 if(user.email){
-						 user.email= result[@"email"];
-						 }
-						 else{
-							 NSLog(@"no email data");
-						 }
-					 [user save];
-					 
+					 NSLog(@"hi");
+					 NSLog(@"fetched user: %@", result);
+					
 				 }
 			 }];
+			
 			
 
 		}

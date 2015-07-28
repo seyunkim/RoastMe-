@@ -50,7 +50,7 @@
         <!--MainMenuViewController-->
         <scene sceneID="TUu-eF-Uu4">
             <objects>
-                <viewController storyboardIdentifier="MainMenuViewController" title="MainMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUh-PT-jJ8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenuViewController" title="MainMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUh-PT-jJ8" customClass="MainMenuViewController" customModule="Roast_Me_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WaQ-9a-5Ck"/>
                         <viewControllerLayoutGuide type="bottom" id="yXX-17-YTm"/>
@@ -65,7 +65,13 @@
                                     <constraint firstAttribute="height" constant="80" id="MWi-Lc-BSp"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Main Menu" id="Wj7-0V-K3S"/>
+                                    <navigationItem title="Main Menu" id="Wj7-0V-K3S">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="06Q-Ng-tqf">
+                                            <connections>
+                                                <action selector="logoutButton:" destination="CUh-PT-jJ8" id="DAi-EF-oWF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>

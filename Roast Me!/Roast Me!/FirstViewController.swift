@@ -16,7 +16,6 @@ class FirstViewController: UIViewController {
 	
 	}
 	override func viewDidAppear(animated: Bool) {
-		PFUser.logOut()
 		var currentUser = PFUser.currentUser()
 		
 		println(PFUser.currentUser())

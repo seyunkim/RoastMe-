@@ -10,23 +10,15 @@ import UIKit
 
 
 
-class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
+class MainMenuViewController: UIViewController  {
 	
+	@IBAction func logoutButton(sender: AnyObject) {
+		PFUser.logOut()
+		println("the user is now logged out")
+	}
 		override func viewDidLoad() {
-			var loginButton = FBSDKLoginButton()
-			loginButton.delegate = self
-			loginButton.frame = CGRectMake(100, 100, 150, 40)
-			self.view.addSubview(loginButton)
+			
 
 	}
-	func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-		
-		println("User Logged In")
-	}
-	func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-		
-		println("User Logged Out")
-	}
-
-
+	
 }

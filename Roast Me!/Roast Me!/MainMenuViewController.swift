@@ -15,6 +15,8 @@ class MainMenuViewController: UIViewController  {
 	@IBAction func logoutButton(sender: AnyObject) {
 		PFUser.logOut()
 		println("the user is now logged out")
+		self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+			
 	}
 		override func viewDidLoad() {
 			

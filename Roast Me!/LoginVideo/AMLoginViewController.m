@@ -236,38 +236,30 @@
 			NSLog(@"Uh oh. The user cancelled the Facebook login.");
 		} else if (user.isNew) {
 			NSLog(@"User signed up and logged in through Facebook!");
-			
 			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
 			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
 				 if (!error) {
-					 NSLog(result);
-//					 user.username= result[@"name"];
-//					 user[@"id"]= result[@"id"];
-//					 user[@"email"]= result[@"email"];
+				 NSLog(@"fetched user: %@", result);
+					 			[[PFUser currentUser] setUsername:result[@"name"]];
+					 			[[PFUser currentUser] saveEventually];
+			
+
 				 }
 			 }];
-		
+				[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 
 
 		
 		} else {
 			NSLog(@"User logged in through Facebook!");
-		//	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-			
-			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-				 
-				 if (!error) {
-					 NSLog(@"hi");
-					 NSLog(@"fetched user: %@", result);
-					
-				 }
-			 }];
-			
+			[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
 			
 
 		}
 	}];
+	
+	
 }
 
 

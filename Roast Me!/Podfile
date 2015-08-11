@@ -6,11 +6,13 @@ use_frameworks!
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
+pod 'Firebase', '>= 2.3.3'
 pod 'ParseFacebookUtilsV4', '~> 1.7'
-pod 'ParseUI'
 pod 'Parse', '~> 1.7'
+pod 'MFSideMenu'
 pod 'GPUImage', '~> 0.1'
 pod "AFViewShaker", "~> 0.0.2"
+pod 'KNMultiItemSelector', '~> 1.0'
 link_with 'Roast Me!', 'Roast Me! Dev' 'Roast Me! Tests'
 end
 

@@ -7,18 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 
 
 class MainMenuViewController: UIViewController  {
 	
+	@IBOutlet weak var nameLabel: UILabel!
 	@IBAction func logoutButton(sender: AnyObject) {
-		PFUser.logOut()
+		let ref = Firebase(url: "https://roastme.firebaseio.com")
+		ref.unauth()
 		println("the user is now logged out")
 		self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-			
+		
 	}
 		override func viewDidLoad() {
+			self.nameLabel.text = PFUser.currentUser()?.username
 			
 
 	}

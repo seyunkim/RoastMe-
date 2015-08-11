@@ -7,34 +7,21 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <MFSideMenu/MFSideMenu.h>
 @interface AppDelegate ()
-@property PFUser* currentUser;
 @end
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// [Optional] Power your app with Local Datastore. For more info, go to
-	// https://parse.com/docs/ios_guide#localdatastore/iOS
-	[Parse enableLocalDatastore];
- 
-	// Initialize Parse.
-	[Parse setApplicationId:@"BebgUZpgcf3rF8RexuEr42vesjKZQzQlx2yRhq7C"
-								clientKey:@"2nSP0zf3b2RB5MrfUFzt1aMNVXLSNdNnZmewN6Ee"];
 	
-	
-	[PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
-
-	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 	
 	[FBSDKLoginButton class];
 
-	
+		
 	return [[FBSDKApplicationDelegate sharedInstance] application:application
 																	didFinishLaunchingWithOptions:launchOptions];
 }

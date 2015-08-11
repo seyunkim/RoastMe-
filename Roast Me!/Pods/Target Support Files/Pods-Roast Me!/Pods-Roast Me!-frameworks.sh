@@ -54,9 +54,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'FBSDKLoginKit.framework'
   install_framework 'FBSDKShareKit.framework'
   install_framework 'GPUImage.framework'
+  install_framework 'KNMultiItemSelector.framework'
+  install_framework 'MFSideMenu.framework'
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
-  install_framework 'ParseUI.framework'
+  install_framework 'SDWebImage.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'AFViewShaker.framework'
@@ -65,7 +67,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'FBSDKLoginKit.framework'
   install_framework 'FBSDKShareKit.framework'
   install_framework 'GPUImage.framework'
+  install_framework 'KNMultiItemSelector.framework'
+  install_framework 'MFSideMenu.framework'
   install_framework 'Parse.framework'
   install_framework 'ParseFacebookUtilsV4.framework'
-  install_framework 'ParseUI.framework'
+  install_framework 'SDWebImage.framework'
 fi

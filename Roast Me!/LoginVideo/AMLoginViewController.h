@@ -15,11 +15,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
-@interface AMLoginViewController : UIViewController<UIGestureRecognizerDelegate,FBSDKLoginButtonDelegate>
+@interface AMLoginViewController : UIViewController<UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) BlurView *usernameView;
-@property (strong, nonatomic) BlurView *passwordView;
-@property (strong, nonatomic) UIView *sendButtonView;
-@property (strong, nonatomic) UIButton* facebookButton;
 
 @end

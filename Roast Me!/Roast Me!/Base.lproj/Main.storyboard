@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eh6-aF-iqu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Eh6-aF-iqu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LoginViewController-->
@@ -15,10 +16,34 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login with " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkf-vJ-wut">
+                                <rect key="frame" x="207" y="352" width="186" height="63"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ox-G0-mn8">
+                                <rect key="frame" x="236" y="450" width="128" height="75"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" image="Facebook Button"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dkf-vJ-wut" secondAttribute="bottom" constant="185" id="9NI-UQ-9D0"/>
+                            <constraint firstItem="2ox-G0-mn8" firstAttribute="top" secondItem="Dkf-vJ-wut" secondAttribute="bottom" constant="10" id="PWx-cu-nDA"/>
+                            <constraint firstAttribute="centerX" secondItem="Dkf-vJ-wut" secondAttribute="centerX" id="YlV-pP-cMU"/>
+                            <constraint firstAttribute="centerX" secondItem="2ox-G0-mn8" secondAttribute="centerX" id="pe3-Zz-ooD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oSE-df-DTM"/>
                     <connections>
+                        <outlet property="facebookButton" destination="2ox-G0-mn8" id="wTU-EA-3L0"/>
+                        <outlet property="loginLabel" destination="Dkf-vJ-wut" id="8dS-xf-Jor"/>
                         <segue destination="CUh-PT-jJ8" kind="presentation" identifier="LoginToMainMenu" id="YTq-5M-gH7"/>
                     </connections>
                 </viewController>
@@ -37,6 +62,7 @@
                     <view key="view" contentMode="scaleToFill" id="S8y-VP-fAk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
@@ -61,33 +87,183 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vri-ay-wEL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="MWi-Lc-BSp"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.89411764705882357" green="0.46666666666666667" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Main Menu" id="Wj7-0V-K3S">
-                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="06Q-Ng-tqf">
-                                            <connections>
-                                                <action selector="logoutButton:" destination="CUh-PT-jJ8" id="DAi-EF-oWF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem id="Wj7-0V-K3S"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex7-KN-PO3">
+                                <rect key="frame" x="209" y="151" width="183" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="pLK-ou-1dM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="pLK-ou-1dM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="pLK-ou-1dM"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yi-PS-uJX">
+                                <rect key="frame" x="170" y="268" width="261" height="63"/>
+                                <animations/>
+                                <state key="normal" image="Rectangle 164 + Submit a Roast Copy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Od9-Vx-0QI" kind="show" id="R64-Yg-F3O"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="RoastME_TitleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dCu-Fd-GFp">
+                                <rect key="frame" x="237" y="38" width="329" height="42"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-O7-HA0">
+                                <rect key="frame" x="275" y="370" width="51" height="30"/>
+                                <animations/>
+                                <state key="normal" title="LogOut">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="152" y="394" width="96" height="55"/>
+                                </variation>
+                                <connections>
+                                    <action selector="logoutButton:" destination="CUh-PT-jJ8" eventType="touchUpInside" id="sQf-wG-MJs"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vri-ay-wEL" firstAttribute="leading" secondItem="3c2-eb-pj8" secondAttribute="leading" id="3eV-Rk-0YC"/>
+                            <constraint firstItem="dCu-Fd-GFp" firstAttribute="top" secondItem="WaQ-9a-5Ck" secondAttribute="bottom" constant="15" id="8ly-GT-AsD"/>
+                            <constraint firstItem="hAc-O7-HA0" firstAttribute="top" secondItem="1Yi-PS-uJX" secondAttribute="bottom" constant="52" id="AtE-Bu-8re"/>
                             <constraint firstAttribute="trailing" secondItem="vri-ay-wEL" secondAttribute="trailing" id="E0i-9V-vB0"/>
+                            <constraint firstItem="ex7-KN-PO3" firstAttribute="leading" secondItem="3c2-eb-pj8" secondAttribute="leadingMargin" constant="90" id="EOB-Iu-a89"/>
+                            <constraint firstItem="dCu-Fd-GFp" firstAttribute="centerX" secondItem="vri-ay-wEL" secondAttribute="centerX" id="FsT-Ao-cso"/>
+                            <constraint firstAttribute="centerX" secondItem="hAc-O7-HA0" secondAttribute="centerX" id="G2Z-cg-B7M"/>
                             <constraint firstItem="vri-ay-wEL" firstAttribute="top" secondItem="3c2-eb-pj8" secondAttribute="top" id="PIF-Qc-P5G"/>
+                            <constraint firstAttribute="centerX" secondItem="1Yi-PS-uJX" secondAttribute="centerX" constant="-0.5" id="Pck-Gp-zUC"/>
+                            <constraint firstAttribute="centerX" secondItem="1Yi-PS-uJX" secondAttribute="centerX" constant="-0.5" id="PfT-Bv-7hF"/>
+                            <constraint firstItem="dCu-Fd-GFp" firstAttribute="centerX" secondItem="vri-ay-wEL" secondAttribute="centerX" id="VgO-x8-4Fq"/>
+                            <constraint firstItem="ex7-KN-PO3" firstAttribute="top" secondItem="dCu-Fd-GFp" secondAttribute="bottom" constant="82" id="Yyv-nD-hiV"/>
+                            <constraint firstItem="ex7-KN-PO3" firstAttribute="leading" secondItem="dCu-Fd-GFp" secondAttribute="leading" id="fAf-Rm-RTm"/>
+                            <constraint firstItem="dCu-Fd-GFp" firstAttribute="bottom" secondItem="vri-ay-wEL" secondAttribute="bottom" id="hVh-Qa-MwR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ex7-KN-PO3" secondAttribute="trailing" constant="95" id="prU-At-VP0"/>
+                            <constraint firstItem="1Yi-PS-uJX" firstAttribute="top" secondItem="WaQ-9a-5Ck" secondAttribute="bottom" constant="259" id="sPs-xp-xhN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8ly-GT-AsD"/>
+                                <exclude reference="VgO-x8-4Fq"/>
+                                <exclude reference="hVh-Qa-MwR"/>
+                                <exclude reference="EOB-Iu-a89"/>
+                                <exclude reference="Yyv-nD-hiV"/>
+                                <exclude reference="fAf-Rm-RTm"/>
+                                <exclude reference="prU-At-VP0"/>
+                                <exclude reference="PfT-Bv-7hF"/>
+                                <exclude reference="sPs-xp-xhN"/>
+                                <exclude reference="AtE-Bu-8re"/>
+                                <exclude reference="G2Z-cg-B7M"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="8ly-GT-AsD"/>
+                                <exclude reference="FsT-Ao-cso"/>
+                                <include reference="VgO-x8-4Fq"/>
+                                <include reference="hVh-Qa-MwR"/>
+                                <include reference="EOB-Iu-a89"/>
+                                <include reference="Yyv-nD-hiV"/>
+                                <include reference="fAf-Rm-RTm"/>
+                                <include reference="prU-At-VP0"/>
+                                <exclude reference="Pck-Gp-zUC"/>
+                                <include reference="PfT-Bv-7hF"/>
+                                <include reference="sPs-xp-xhN"/>
+                                <include reference="AtE-Bu-8re"/>
+                                <include reference="G2Z-cg-B7M"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="ex7-KN-PO3" id="en6-Yf-Saf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9p-dl-hZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="674"/>
+            <point key="canvasLocation" x="2092.5" y="777"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="366-Je-0Fr">
+            <objects>
+                <viewController storyboardIdentifier="Friend Invites" id="Od9-Vx-0QI" customClass="ProfileViewController" customModule="Roast_Me_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0qJ-K1-eMh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uby-3v-cx0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HEw-9j-oRn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-Eh-cA5">
+                                <rect key="frame" x="182" y="52" width="271" height="200"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cse-rl-d6m">
+                                <rect key="frame" x="201" y="73" width="92" height="60"/>
+                                <animations/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="RJ1-Eh-cA5" id="nCR-cT-9RP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNN-9M-GTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2877" y="674"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IxG-xJ-uui">
+            <objects>
+                <viewController id="kQj-cb-y3b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s3k-B1-Tkc"/>
+                        <viewControllerLayoutGuide type="bottom" id="0o5-iO-21s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1hn-5x-Dqv">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50H-Uy-KIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2833.5" y="1334.25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Facebook Button" width="73" height="75"/>
+        <image name="Rectangle 164 + Submit a Roast Copy" width="261" height="63"/>
+        <image name="RoastME_TitleLogo" width="1326" height="358"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YTq-5M-gH7"/>
     </inferredMetricsTieBreakers>

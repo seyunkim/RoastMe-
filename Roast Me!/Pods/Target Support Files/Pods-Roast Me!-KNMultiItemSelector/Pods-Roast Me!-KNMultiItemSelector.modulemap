@@ -1,0 +1,6 @@
+framework module KNMultiItemSelector {
+  umbrella header "Pods-Roast Me!-KNMultiItemSelector-umbrella.h"
+
+  export *
+  module * { export * }
+}

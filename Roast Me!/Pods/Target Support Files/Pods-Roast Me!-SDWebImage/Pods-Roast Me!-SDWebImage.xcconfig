@@ -1,0 +1,1 @@
+PODS_ROAST_ME__SDWEBIMAGE_OTHER_LDFLAGS = -framework "ImageIO"

@@ -7,8 +7,7 @@
 //
 
 #import "AMLoginViewController.h"
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
-#import <Parse/Parse.h>
+#import <Firebase/Firebase.h>
 
 
 @interface AMLoginViewController () 
@@ -25,10 +24,13 @@
 	
  
 }
+@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 
 @end
 
 @implementation AMLoginViewController
+
 
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -43,10 +45,7 @@
 	
 
 	
-		self.facebookButton = [[UIButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
-	
-	
-	[self.facebookButton addTarget:self action:@selector(_loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
+		[self.facebookButton addTarget:self action:@selector(_loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 
 
@@ -187,21 +186,20 @@
 	// Blur Effect End
 	
 	//Logo
-    UIImageView * loginImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 110, 110)];
-    [loginImage setImage:[UIImage imageNamed:@"logoclubby.png"]];
-    loginImage.center = CGPointMake(self.view.frame.size.width/2, 120);
+    UIImageView * loginImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 270, 80)];
+    [loginImage setImage:[UIImage imageNamed:@"RoastME_TitleLogo.png"]];
+    loginImage.center = CGPointMake(self.view.frame.size.width/2, 135);
     [self.view addSubview:loginImage];
 	//Logo End
 	
-	//FB SDK LOGIN **USED FOR PICTURE ONLY**
-	FBSDKLoginButton* sdkButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
-	sdkButton.userInteractionEnabled = NO;
-	sdkButton.center = self.view.center;
-	[self.view addSubview:sdkButton];
-	//End for Picture
 	
+	// add Login Label
+	[self.view addSubview:self.loginLabel];
 	//ACTUAL LOGIN BUTTON START
-	self.facebookButton.center = self.view.center;
+	UIImage *btnImage = [UIImage imageNamed:@"Facebook Button.png"];
+	[self.facebookButton setImage:btnImage forState:UIControlStateNormal];
+	self.facebookButton.center =CGPointMake(self.view.frame.size.width/2, 200);
+//	self.facebookButton.frame = CGRectOffset(self.facebookButton.frame, (self.view.center.x - (self.facebookButton.frame.size.width / 2)), self.view.bounds.size.height-180);
 	[self.view addSubview:self.facebookButton];
 	//Login Button End
 //
@@ -228,36 +226,64 @@
 
 }
 - (void)_loginWithFacebook {
-	// Set permissions required from the facebook user account
-	NSArray *permissionsArray = @[@"public_profile", @"email", @"user_friends"];
-	// Login PFUser using Facebook
-	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-		if (!user) {
-			NSLog(@"Uh oh. The user cancelled the Facebook login.");
-		} else if (user.isNew) {
-			NSLog(@"User signed up and logged in through Facebook!");
-			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-				 if (!error) {
-				 NSLog(@"fetched user: %@", result);
-					 			[[PFUser currentUser] setUsername:result[@"name"]];
-					 			[[PFUser currentUser] saveEventually];
-			
-
-				 }
-			 }];
-				[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-
-
-		
-		} else {
-			NSLog(@"User logged in through Facebook!");
-			[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-
-			
-
-		}
-	}];
+//	// Set permissions required from the facebook user account
+//	NSArray *permissionsArray = @[@"public_profile", @"email", @"user_friends"];
+//	// Login PFUser using Facebook
+//	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+//		if (!user) {
+//			NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//		} else if (user.isNew) {
+//			NSLog(@"User signed up and logged in through Facebook!");
+//			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+//			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+//				 if (!error) {
+//				 NSLog(@"fetched user: %@", result);
+//					 			[[PFUser currentUser] setUsername:result[@"name"]];
+//							NSLog(result[@"id"]);
+//					 [PFUser currentUser][@"id"] = result[@"id"];
+//					 			[[PFUser currentUser] saveEventually];
+//			
+//
+//				 }
+//			 }];
+//				[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//
+//
+//		
+//		} else {
+//			NSLog(@"User logged in through Facebook!");
+//			[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//
+//			
+//
+//		}
+//	}];
+	
+	Firebase *ref = [[Firebase alloc] initWithUrl:@"https://roastme.firebaseio.com"];
+	FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
+	
+	[facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
+																	handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError) {
+																		
+																		if (facebookError) {
+																			NSLog(@"Facebook login failed. Error: %@", facebookError);
+																		} else if (facebookResult.isCancelled) {
+																			NSLog(@"Facebook login got cancelled.");
+																		} else {
+																			NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
+																			
+																			[ref authWithOAuthProvider:@"facebook" token:accessToken
+																						 withCompletionBlock:^(NSError *error, FAuthData *authData) {
+																							 
+																							 if (error) {
+																								 NSLog(@"Login failed. %@", error);
+																							 } else {
+																								 NSLog(@"Logged in! %@", authData);
+																								 	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+																							 }
+																						 }];
+																		}
+																	}];
 	
 	
 }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C80195A59F0C1C0B9E4F7FDC"
+               BlueprintIdentifier = "82BAEE52ADD944FA21C905A8"
                BuildableName = "AFViewShaker.framework"
                BlueprintName = "Pods-Roast Me!-AFViewShaker"
                ReferencedContainer = "container:Pods.xcodeproj">

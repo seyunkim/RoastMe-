@@ -202,88 +202,54 @@
 //	self.facebookButton.frame = CGRectOffset(self.facebookButton.frame, (self.view.center.x - (self.facebookButton.frame.size.width / 2)), self.view.bounds.size.height-180);
 	[self.view addSubview:self.facebookButton];
 	//Login Button End
-//
-//    _usernameView = [[BlurView alloc] initWithFrame:CGRectMake(35, 245, 250, 50)];
-//    _passwordView = [[BlurView alloc] initWithFrame:CGRectMake(35, 300, 250, 50)];
-//    
-	
-//    _sendButtonView = [[UIView alloc] initWithFrame:CGRectMake(35, 370, 250, 50)];
-//    _sendButtonView.backgroundColor = [UIColor colorWithRed:0.925 green:0.941 blue:0.945 alpha:0.7];
-//    
-//    //BUTTON
-//    UIButton * sendButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, _sendButtonView.frame.size.width, _sendButtonView.frame.size.height)];
-//    [sendButton setTitle:@"LOGIN" forState:UIControlStateNormal];
-//    [sendButton setTitleColor:[UIColor colorWithRed:0.173 green:0.243 blue:0.314 alpha:1] forState:UIControlStateNormal];
-//    
-//    [_sendButtonView addSubview:sendButton];
-
-
-	
-//    
-//    [self.view addSubview:_usernameView];
-//    [self.view addSubview:_passwordView];
-//    [self.view addSubview:_sendButtonView];
-
 }
 - (void)_loginWithFacebook {
-//	// Set permissions required from the facebook user account
-//	NSArray *permissionsArray = @[@"public_profile", @"email", @"user_friends"];
-//	// Login PFUser using Facebook
-//	[PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//		if (!user) {
-//			NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//		} else if (user.isNew) {
-//			NSLog(@"User signed up and logged in through Facebook!");
-//			[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-//			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//				 if (!error) {
-//				 NSLog(@"fetched user: %@", result);
-//					 			[[PFUser currentUser] setUsername:result[@"name"]];
-//							NSLog(result[@"id"]);
-//					 [PFUser currentUser][@"id"] = result[@"id"];
-//					 			[[PFUser currentUser] saveEventually];
-//			
-//
-//				 }
-//			 }];
-//				[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//
-//
-//		
-//		} else {
-//			NSLog(@"User logged in through Facebook!");
-//			[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//
-//			
-//
-//		}
-//	}];
+
 	
 	Firebase *ref = [[Firebase alloc] initWithUrl:@"https://roastme.firebaseio.com"];
 	FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
 	
 	[facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
-																	handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError) {
+																	handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError)
+		{
 																		
-																		if (facebookError) {
-																			NSLog(@"Facebook login failed. Error: %@", facebookError);
-																		} else if (facebookResult.isCancelled) {
-																			NSLog(@"Facebook login got cancelled.");
-																		} else {
-																			NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
-																			
-																			[ref authWithOAuthProvider:@"facebook" token:accessToken
-																						 withCompletionBlock:^(NSError *error, FAuthData *authData) {
-																							 
-																							 if (error) {
-																								 NSLog(@"Login failed. %@", error);
-																							 } else {
-																								 NSLog(@"Logged in! %@", authData);
-																								 	[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-																							 }
-																						 }];
-																		}
-																	}];
+					if (facebookError) {
+						NSLog(@"Facebook login failed. Error: %@", facebookError);
+					}
+					else if (facebookResult.isCancelled) {
+						NSLog(@"Facebook login got cancelled.");
+					}
+					else {
+							NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
+							
+							[ref authWithOAuthProvider:@"facebook" token:accessToken
+										 withCompletionBlock:^(NSError *error, FAuthData *authData)
+							{
+											 
+										 if (error) {
+											 NSLog(@"Login failed. %@", error);
+										 } else {
+											 //Log in is Successful
+											 NSLog(@"Logged in! %@", authData);
+											 
+											 NSLog(@"%@", authData.uid);
+											 // Create a new user dictionary accessing the user's info
+											 // provided by the authData parameter
+											 NSDictionary *newUser = @{
+																								 @"provider": authData.provider,
+																								 @"displayName": authData.providerData[@"displayName"]
+																								 };
+											 // Create a child path with a key set to the uid underneath the "users" node
+											 // This creates a URL path like the following:
+											 //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
+											 [[[ref childByAppendingPath:@"users"]
+												 childByAppendingPath:authData.uid] setValue:newUser];
+											 
+												[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+										 }
+						}];
+				}
+		}];
 	
 	
 }

@@ -11,9 +11,6 @@ import UIKit
 class ProfileViewController: UIViewController {
 	@IBOutlet weak var profileImageView: UIImageView!
 	override func viewDidLoad() {
-		var user = PFUser.currentUser()
-		user!.fetch()
-		println("the user is: \(user)")
 //		var facebookProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
 //		
 //		FBRequestConnection.startWithGraphPath("me?fields=feed", completionHandler: { (connection, result, error) -> Void in

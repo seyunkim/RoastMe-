@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5E1034E11B69521500B6D656 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1034E01B69521500B6D656 /* ProfileViewController.swift */; };
 		5EA55CA81B588517004AF7E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA55CA71B588517004AF7E4 /* main.m */; };
-		5EA55CAE1B588517004AF7E4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA55CAD1B588517004AF7E4 /* ViewController.m */; };
 		5EA55CB11B588517004AF7E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA55CAF1B588517004AF7E4 /* Main.storyboard */; };
 		5EA55CB31B588517004AF7E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA55CB21B588517004AF7E4 /* Images.xcassets */; };
 		5EA55CB61B588517004AF7E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA55CB41B588517004AF7E4 /* LaunchScreen.xib */; };
@@ -20,6 +19,7 @@
 		5EA560F01B59B3EA004AF7E4 /* demoVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5EA560E71B59B3EA004AF7E4 /* demoVideo.mp4 */; };
 		5EA560FD1B5B637D004AF7E4 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */; };
 		5EFC177C1B5DC4F600BAF475 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */; };
+		5EFFC8531B7ECADE00C49392 /* RoastGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFFC8521B7ECADE00C49392 /* RoastGame.swift */; };
 		60A249AAE895FA838C44BA8D /* Pods_Roast_Me_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00631621BBA95B24C7A35D2 /* Pods_Roast_Me_.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -38,8 +38,6 @@
 		5EA55CA21B588516004AF7E4 /* Roast Me!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roast Me!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA55CA61B588517004AF7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EA55CA71B588517004AF7E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5EA55CAC1B588517004AF7E4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5EA55CAD1B588517004AF7E4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5EA55CB01B588517004AF7E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EA55CB21B588517004AF7E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5EA55CB51B588517004AF7E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -56,6 +54,7 @@
 		5EA560E71B59B3EA004AF7E4 /* demoVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = demoVideo.mp4; path = LoginVideo/demoVideo.mp4; sourceTree = SOURCE_ROOT; };
 		5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5EFFC8521B7ECADE00C49392 /* RoastGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoastGame.swift; sourceTree = "<group>"; };
 		A00631621BBA95B24C7A35D2 /* Pods_Roast_Me_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roast_Me_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2BB24FE85CEA9C0D1E1DFB2 /* Pods-Roast Me!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roast Me!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roast Me!/Pods-Roast Me!.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B780B2B5446FBF51DC47E0 /* Pods-Roast Me!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roast Me!.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roast Me!/Pods-Roast Me!.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		5EA55CA41B588516004AF7E4 /* Roast Me! */ = {
 			isa = PBXGroup;
 			children = (
-				5EA560E21B59B3D0004AF7E4 /* Login */,
 				5EA560F91B5A4EB8004AF7E4 /* Src */,
 				5EA55CAF1B588517004AF7E4 /* Main.storyboard */,
 				5EA560FA1B5A4EEC004AF7E4 /* Other */,
@@ -149,6 +147,7 @@
 		5EA560E21B59B3D0004AF7E4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */,
 				5EA560E31B59B3EA004AF7E4 /* AMLoginViewController.h */,
 				5EA560E41B59B3EA004AF7E4 /* AMLoginViewController.m */,
 				5EA560E51B59B3EA004AF7E4 /* BlurView.h */,
@@ -161,13 +160,10 @@
 		5EA560F91B5A4EB8004AF7E4 /* Src */ = {
 			isa = PBXGroup;
 			children = (
-				5EFC177B1B5DC4F600BAF475 /* FirstViewController.swift */,
-				5E1034E01B69521500B6D656 /* ProfileViewController.swift */,
+				5EA560E21B59B3D0004AF7E4 /* Login */,
+				5EFFC8511B7EC00F00C49392 /* View Controllers */,
 				5EA55CD31B58862E004AF7E4 /* AppDelegate.h */,
 				5EA55CD41B58862E004AF7E4 /* AppDelegate.m */,
-				5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */,
-				5EA55CAC1B588517004AF7E4 /* ViewController.h */,
-				5EA55CAD1B588517004AF7E4 /* ViewController.m */,
 			);
 			name = Src;
 			sourceTree = "<group>";
@@ -180,6 +176,16 @@
 				5EA55CB41B588517004AF7E4 /* LaunchScreen.xib */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		5EFFC8511B7EC00F00C49392 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E1034E01B69521500B6D656 /* ProfileViewController.swift */,
+				5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */,
+				5EFFC8521B7ECADE00C49392 /* RoastGame.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		66964589BA6D703935735A4C /* Pods */ = {
@@ -348,7 +354,7 @@
 				5EA55CD51B58862E004AF7E4 /* AppDelegate.m in Sources */,
 				5EA560EF1B59B3EA004AF7E4 /* BlurView.m in Sources */,
 				5EFC177C1B5DC4F600BAF475 /* FirstViewController.swift in Sources */,
-				5EA55CAE1B588517004AF7E4 /* ViewController.m in Sources */,
+				5EFFC8531B7ECADE00C49392 /* RoastGame.swift in Sources */,
 				5E1034E11B69521500B6D656 /* ProfileViewController.swift in Sources */,
 				5EA55CA81B588517004AF7E4 /* main.m in Sources */,
 			);

@@ -235,15 +235,17 @@
 											 NSLog(@"%@", authData.uid);
 											 // Create a new user dictionary accessing the user's info
 											 // provided by the authData parameter
+                                              NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [authData.uid substringFromIndex:9]];
 											 NSDictionary *newUser = @{
-																								 @"provider": authData.provider,
-																								 @"displayName": authData.providerData[@"displayName"]
-																								 };
+                                                    @"provider": authData.provider,
+                                                     @"displayName": authData.providerData[@"displayName"],
+                                                    @"profilePicURL": userImageURL
+                                                             };
 											 // Create a child path with a key set to the uid underneath the "users" node
 											 // This creates a URL path like the following:
 											 //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
 											 [[[ref childByAppendingPath:@"users"]
-												 childByAppendingPath:authData.uid] setValue:newUser];
+												 childByAppendingPath:[authData.uid substringFromIndex:9]] setValue:newUser];
 											 
 												[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 										 }

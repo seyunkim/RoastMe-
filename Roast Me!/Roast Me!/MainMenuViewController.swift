@@ -21,7 +21,7 @@ class MainMenuViewController: UIViewController  {
 		
 	}
 		override func viewDidLoad() {
-			self.nameLabel.text = PFUser.currentUser()?.username
+			
 			
 
 	}

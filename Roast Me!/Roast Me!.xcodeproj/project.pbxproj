@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E1034E11B69521500B6D656 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1034E01B69521500B6D656 /* ProfileViewController.swift */; };
+		5E7555991B807F9300AB9382 /* FriendInvitePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7555981B807F9300AB9382 /* FriendInvitePickerViewController.swift */; };
 		5EA55CA81B588517004AF7E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA55CA71B588517004AF7E4 /* main.m */; };
 		5EA55CB11B588517004AF7E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA55CAF1B588517004AF7E4 /* Main.storyboard */; };
 		5EA55CB31B588517004AF7E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA55CB21B588517004AF7E4 /* Images.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		5E1034E01B69521500B6D656 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5E7555981B807F9300AB9382 /* FriendInvitePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendInvitePickerViewController.swift; sourceTree = "<group>"; };
 		5EA55CA21B588516004AF7E4 /* Roast Me!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roast Me!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA55CA61B588517004AF7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EA55CA71B588517004AF7E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				5E1034E01B69521500B6D656 /* ProfileViewController.swift */,
 				5EA560FC1B5B637D004AF7E4 /* MainMenuViewController.swift */,
 				5EFFC8521B7ECADE00C49392 /* RoastGame.swift */,
+				5E7555981B807F9300AB9382 /* FriendInvitePickerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				5EFC177C1B5DC4F600BAF475 /* FirstViewController.swift in Sources */,
 				5EFFC8531B7ECADE00C49392 /* RoastGame.swift in Sources */,
 				5E1034E11B69521500B6D656 /* ProfileViewController.swift in Sources */,
+				5E7555991B807F9300AB9382 /* FriendInvitePickerViewController.swift in Sources */,
 				5EA55CA81B588517004AF7E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

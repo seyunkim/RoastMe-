@@ -1,1 +1,0 @@
-PODS_ROAST_ME__KNMULTIITEMSELECTOR_OTHER_LDFLAGS = -framework "CoreGraphics" -framework "ImageIO"

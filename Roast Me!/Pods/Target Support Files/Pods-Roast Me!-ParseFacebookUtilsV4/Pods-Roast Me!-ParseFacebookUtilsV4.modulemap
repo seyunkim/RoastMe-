@@ -1,6 +1,0 @@
-framework module ParseFacebookUtilsV4 {
-  umbrella header "Pods-Roast Me!-ParseFacebookUtilsV4-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module MFSideMenu {
-  umbrella header "Pods-Roast Me!-MFSideMenu-umbrella.h"
-
-  export *
-  module * { export * }
-}

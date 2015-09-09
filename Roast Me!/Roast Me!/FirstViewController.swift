@@ -33,7 +33,7 @@ class FirstViewController: UIViewController {
 				println("the user is not logged in! Presenting Login Screen--->")
 				let storyboard = UIStoryboard(name: "Main", bundle: nil)
 				let LoginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
-				self.presentViewController(LoginViewController, animated:true, completion:nil)
+                self.presentViewController(LoginViewController, animated:true, completion:nil)
 				// Show the signup or login screen
 
 			}

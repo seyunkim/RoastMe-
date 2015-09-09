@@ -4,57 +4,42 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Roast Me!-AFViewShaker.xcscheme</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-Bolts.xcscheme</key>
+		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-FBSDKCoreKit.xcscheme</key>
+		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-FBSDKLoginKit.xcscheme</key>
+		<key>FBSDKShareKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-FBSDKShareKit.xcscheme</key>
+		<key>GPUImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-GPUImage.xcscheme</key>
+		<key>ICETutorial.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-KNMultiItemSelector.xcscheme</key>
+		<key>JGProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Roast Me!-MFSideMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Roast Me!-Parse.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Roast Me!-ParseFacebookUtilsV4.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Roast Me!-SDWebImage.xcscheme</key>
+		<key>MFSideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,65 +49,60 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>XHAmazingLoading.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>090E4585A0850F03056569F8</key>
+		<key>0C4D133756C5E3D6E6DC43DE9E3FD2B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A7C6C595046D853D91453D8</key>
+		<key>11EDE690F66322A02C2BE2FC0DF179DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C62FCF24202D82DFDB00799</key>
+		<key>182ED928228C4D05C98307AE70645E62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B496C933FA5962A1CE4F799</key>
+		<key>6FF873C0F2E26DA248AF1DFC1AFDF685</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7364097A237CBED4B5933B55</key>
+		<key>745EFFD972B961E397E8E2A7BF6EABCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E5C0488A334B0BFBEB4A372</key>
+		<key>797663501D63444A1D98643593753ED8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82BAEE52ADD944FA21C905A8</key>
+		<key>87035F350EF58FD34F71DAE6FEF1B2F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>84F4A52687F22E3E23693F1C</key>
+		<key>978AA5966B30FDC0E9BAC03FAEFBF53C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85652DFAA2C871F28C5D2E39</key>
+		<key>CBA98C778BCDBA8A6A05B595BFCEFF17</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>972204C17AE954F8CCF1AF1E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA14C4CEA66AC73E00B87A35</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC13A4EB46F22315BA7D5201</key>
+		<key>CE53124D4F0D8AEB9EFD72C515B1F4D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

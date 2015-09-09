@@ -8,68 +8,68 @@ SWIFT_STDLIB_PATH="${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}"
 
 install_framework()
 {
-  local source="${BUILT_PRODUCTS_DIR}/Pods-Roast Me!/$1"
+  if [ -r "${BUILT_PRODUCTS_DIR}/$1" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$1"
+  else
+    local source="${BUILT_PRODUCTS_DIR}/$(basename "$1")"
+  fi
+
   local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
-      source=$(readlink "${source}")
+      source="$(readlink "${source}")"
   fi
 
   # use filter instead of exclude so missing patterns dont' throw errors
-  echo "rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" --filter "- Modules/" ${source} ${destination}"
-  rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" --filter "- Modules/" "${source}" "${destination}"
+  echo "rsync -av --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${destination}\""
+  rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${destination}"
+
   # Resign the code if required by the build settings to avoid unstable apps
-  if [ "${CODE_SIGNING_REQUIRED}" == "YES" ]; then
-      code_sign "${destination}/$1"
-  fi
+  code_sign_if_enabled "${destination}/$(basename "$1")"
 
   # Embed linked Swift runtime libraries
   local basename
-  basename=$(echo $1 | sed -E s/\\..+// && exit ${PIPESTATUS[0]})
+  basename="$(basename "$1" | sed -E s/\\..+// && exit ${PIPESTATUS[0]})"
   local swift_runtime_libs
-  swift_runtime_libs=$(xcrun otool -LX "${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/$1/${basename}" | grep --color=never @rpath/libswift | sed -E s/@rpath\\/\(.+dylib\).*/\\1/g | uniq -u  && exit ${PIPESTATUS[0]})
+  swift_runtime_libs=$(xcrun otool -LX "${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/${basename}.framework/${basename}" | grep --color=never @rpath/libswift | sed -E s/@rpath\\/\(.+dylib\).*/\\1/g | uniq -u  && exit ${PIPESTATUS[0]})
   for lib in $swift_runtime_libs; do
     echo "rsync -auv \"${SWIFT_STDLIB_PATH}/${lib}\" \"${destination}\""
     rsync -auv "${SWIFT_STDLIB_PATH}/${lib}" "${destination}"
-    if [ "${CODE_SIGNING_REQUIRED}" == "YES" ]; then
-      code_sign "${destination}/${lib}"
-    fi
+    code_sign_if_enabled "${destination}/${lib}"
   done
 }
 
 # Signs a framework with the provided identity
-code_sign() {
-  # Use the current code_sign_identitiy
-  echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-  echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1"
-  /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+code_sign_if_enabled() {
+  if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
+    # Use the current code_sign_identitiy
+    echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+  fi
 }
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'AFViewShaker.framework'
-  install_framework 'Bolts.framework'
-  install_framework 'FBSDKCoreKit.framework'
-  install_framework 'FBSDKLoginKit.framework'
-  install_framework 'FBSDKShareKit.framework'
-  install_framework 'GPUImage.framework'
-  install_framework 'KNMultiItemSelector.framework'
-  install_framework 'MFSideMenu.framework'
-  install_framework 'Parse.framework'
-  install_framework 'ParseFacebookUtilsV4.framework'
-  install_framework 'SDWebImage.framework'
+  install_framework 'Pods-Roast Me!/Bolts.framework'
+  install_framework 'Pods-Roast Me!/FBSDKCoreKit.framework'
+  install_framework 'Pods-Roast Me!/FBSDKLoginKit.framework'
+  install_framework 'Pods-Roast Me!/FBSDKShareKit.framework'
+  install_framework 'Pods-Roast Me!/GPUImage.framework'
+  install_framework 'Pods-Roast Me!/ICETutorial.framework'
+  install_framework 'Pods-Roast Me!/JGProgressHUD.framework'
+  install_framework 'Pods-Roast Me!/MFSideMenu.framework'
+  install_framework 'Pods-Roast Me!/XHAmazingLoading.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'AFViewShaker.framework'
-  install_framework 'Bolts.framework'
-  install_framework 'FBSDKCoreKit.framework'
-  install_framework 'FBSDKLoginKit.framework'
-  install_framework 'FBSDKShareKit.framework'
-  install_framework 'GPUImage.framework'
-  install_framework 'KNMultiItemSelector.framework'
-  install_framework 'MFSideMenu.framework'
-  install_framework 'Parse.framework'
-  install_framework 'ParseFacebookUtilsV4.framework'
-  install_framework 'SDWebImage.framework'
+  install_framework 'Pods-Roast Me!/Bolts.framework'
+  install_framework 'Pods-Roast Me!/FBSDKCoreKit.framework'
+  install_framework 'Pods-Roast Me!/FBSDKLoginKit.framework'
+  install_framework 'Pods-Roast Me!/FBSDKShareKit.framework'
+  install_framework 'Pods-Roast Me!/GPUImage.framework'
+  install_framework 'Pods-Roast Me!/ICETutorial.framework'
+  install_framework 'Pods-Roast Me!/JGProgressHUD.framework'
+  install_framework 'Pods-Roast Me!/MFSideMenu.framework'
+  install_framework 'Pods-Roast Me!/XHAmazingLoading.framework'
 fi

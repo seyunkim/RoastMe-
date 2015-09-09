@@ -1,6 +1,0 @@
-framework module AFViewShaker {
-  umbrella header "Pods-Roast Me!-AFViewShaker-umbrella.h"
-
-  export *
-  module * { export * }
-}

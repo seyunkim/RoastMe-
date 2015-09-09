@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <MFSideMenu/MFSideMenu.h>
+#import "MFSideMenu/MFSideMenu.h"
 @interface AppDelegate ()
 @end
 
@@ -17,10 +17,19 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	
+
 	
 	[FBSDKLoginButton class];
+    
+   
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
+    
+    //UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];  //I have instantiated using storyboard id.
+    //UIViewController *leftSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];   //I have instantiated using storyboard id.
 
+  //  [container setLeftMenuViewController:leftSideMenuViewController];
+//    [container setCenterViewController:navigationController];
 		
 	return [[FBSDKApplicationDelegate sharedInstance] application:application
 																	didFinishLaunchingWithOptions:launchOptions];

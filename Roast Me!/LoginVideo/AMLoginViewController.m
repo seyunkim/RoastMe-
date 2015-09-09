@@ -8,7 +8,7 @@
 
 #import "AMLoginViewController.h"
 #import <Firebase/Firebase.h>
-
+#import "TwitterAuthHelper.h"
 
 @interface AMLoginViewController () 
 
@@ -26,6 +26,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *facebookButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
 
 @end
 
@@ -46,6 +47,8 @@
 
 	
 		[self.facebookButton addTarget:self action:@selector(_loginWithFacebook) forControlEvents:UIControlEventTouchUpInside];
+    [self.twitterButton addTarget:self action:@selector(_loginWithTwitter) forControlEvents:UIControlEventTouchUpInside];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 
 
@@ -203,57 +206,27 @@
 	[self.view addSubview:self.facebookButton];
 	//Login Button End
 }
+
+- (void) _loginWithTwitter{
+  
+    
+       
+}
 - (void)_loginWithFacebook {
 
 	
-	Firebase *ref = [[Firebase alloc] initWithUrl:@"https://roastme.firebaseio.com"];
-	FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
-	
-	[facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
-																	handler:^(FBSDKLoginManagerLoginResult *facebookResult, NSError *facebookError)
-		{
-																		
-					if (facebookError) {
-						NSLog(@"Facebook login failed. Error: %@", facebookError);
-					}
-					else if (facebookResult.isCancelled) {
-						NSLog(@"Facebook login got cancelled.");
-					}
-					else {
-							NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
-							
-							[ref authWithOAuthProvider:@"facebook" token:accessToken
-										 withCompletionBlock:^(NSError *error, FAuthData *authData)
-							{
-											 
-										 if (error) {
-											 NSLog(@"Login failed. %@", error);
-										 } else {
-											 //Log in is Successful
-											 NSLog(@"Logged in! %@", authData);
-											 
-											 NSLog(@"%@", authData.uid);
-											 // Create a new user dictionary accessing the user's info
-											 // provided by the authData parameter
-                                              NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [authData.uid substringFromIndex:9]];
-											 NSDictionary *newUser = @{
-                                                    @"provider": authData.provider,
-                                                     @"displayName": authData.providerData[@"displayName"],
-                                                    @"profilePicURL": userImageURL
-                                                             };
-											 // Create a child path with a key set to the uid underneath the "users" node
-											 // This creates a URL path like the following:
-											 //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
-											 [[[ref childByAppendingPath:@"users"]
-												 childByAppendingPath:[authData.uid substringFromIndex:9]] setValue:newUser];
-											 
-												[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-										 }
-						}];
-				}
-		}];
 	
 	
+}
+- (void)showErrorAlertWithMessage:(NSString *)message
+{
+    // display an alert with the error message
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 
